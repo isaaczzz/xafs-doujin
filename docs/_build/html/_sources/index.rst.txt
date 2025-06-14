@@ -3,15 +3,11 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-XAFS Doujin documentation
-=========================
+XAFS Doujin
+===========
 
-Add your content using ``reStructuredText`` syntax. See the
-`reStructuredText <https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`_
-documentation for details.
-
+XAFS Doujin (from *doujinshi*, 同人誌, a self-published work) is a crash-course on x-ray spectroscopy.
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+   theory
 
