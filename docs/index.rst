@@ -10,4 +10,4 @@ XAFS Doujin (from *doujinshi*, 同人誌, a self-published work) is a crash-cour
 
 .. toctree::
    theory
-
+   software
