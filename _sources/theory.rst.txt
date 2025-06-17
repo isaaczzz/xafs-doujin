@@ -1,6 +1,11 @@
 Theory
 ======
 
+.. image:: /img/school_class_seifuku_woman_aseru.png
+    :alt: a female teacher trying to explain XAFS to kids
+    :width: 50%
+    :align: left
+
 What is XAFS, really?
 ---------------------
 
