@@ -44,10 +44,19 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="motivation.html">What’s in it for me?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="theory.html">Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="absorption.html">Measuring X-Ray Absorption</a></li>
 <li class="toctree-l1"><a class="reference internal" href="software.html">Software</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Data</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#the-basic-procedure">The basic procedure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#importing-data-into-larix">Importing data into Larix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rebinning">Rebinning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#merging">Merging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pre-edge-background">Pre-edge background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#normalization">Normalization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#energy-calibration">Energy calibration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#it-s-my-exafs-and-i-need-it-now">It’s my EXAFS and I need it now!</a></li>
 </ul>
 </li>
 </ul>
@@ -78,7 +87,11 @@
              
   <section id="data">
 <h1>Data<a class="headerlink" href="#data" title="Link to this heading"></a></h1>
-<p>This section covers how to pull raw data into Larch and how to clean up raw data for XANES and EXAFS analysis.</p>
+<div class="admonition-tl-dr admonition">
+<p class="admonition-title">tl;dr</p>
+<p>This section covers how to pull raw data into Larix and how to clean up raw data for XANES and EXAFS analysis. Raw quick-XAFS data from SPring-8 BL01B1 are used as examples.</p>
+</div>
+<p>The example data were recorded at SPring-8 BL01B1 during the 2024B-III cycle (early-2025). The sample of interest is activated CuZn-MFU-4<cite>l</cite>, measured in a He cryostat at 10 K, and the reference sample is Cu foil at room temperature. The samples were measured in transmission geometry and the beamline was operated in quick-XAFS mode, resulting in a very high number of data points.</p>
 <section id="the-basic-procedure">
 <h2>The basic procedure<a class="headerlink" href="#the-basic-procedure" title="Link to this heading"></a></h2>
 <a class="reference internal image-reference" href="_images/work_shigoto_osame_man.png"><img alt="a guy shoving paperwork into a box" class="align-right" src="_images/work_shigoto_osame_man.png" style="width: 25%;" />
@@ -86,10 +99,39 @@
 <p>“Data reduction” means something different for XAFS analysis than it does for machine learning. Reduction means getting raw absorption data ready for XANES and EXAFS analysis by:</p>
 <ol class="arabic simple">
 <li><p>Rebinning the data points onto a less dense grid to reduce the data size, get rid of unnecessary data points, and sometimes reduce noise.</p></li>
+<li><p>Merging individual scans.</p></li>
 <li><p>Subtracting the pre-edge background to remove the effect of absorption from lower-energy edges and from other sources. At this step, for fluorescence-detected measurements, things like glitch removal (deglitching) and over-absorption (self-absorption) correction are also done.</p></li>
 <li><p>Normalizing the data so that the edge jump (the difference between the pre-edge and the slowly decaying part of the post-edge) is 1.</p></li>
+<li><p>Calibrating the photon energy scale according to a standard. For example, for the Cu K-edge, the scale is aligned so that the first inflection point of a metallic Cu spectrum appears at 8980.3 eV.</p></li>
 <li><p>Transforming the data from (photon) energy space (E-space) to (photoelectron) wavenumber space (k-space) for EXAFS analysis.</p></li>
 </ol>
+</section>
+<section id="importing-data-into-larix">
+<h2>Importing data into Larix<a class="headerlink" href="#importing-data-into-larix" title="Link to this heading"></a></h2>
+<a class="reference internal image-reference" href="_images/animal_mogura_kouji2.png"><img alt="a mole wearing a hardhat" class="align-center" src="_images/animal_mogura_kouji2.png" style="width: 50%;" />
+</a>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>These subsections are under construction.</p>
+</div>
+</section>
+<section id="rebinning">
+<h2>Rebinning<a class="headerlink" href="#rebinning" title="Link to this heading"></a></h2>
+</section>
+<section id="merging">
+<h2>Merging<a class="headerlink" href="#merging" title="Link to this heading"></a></h2>
+</section>
+<section id="pre-edge-background">
+<h2>Pre-edge background<a class="headerlink" href="#pre-edge-background" title="Link to this heading"></a></h2>
+</section>
+<section id="normalization">
+<h2>Normalization<a class="headerlink" href="#normalization" title="Link to this heading"></a></h2>
+</section>
+<section id="energy-calibration">
+<h2>Energy calibration<a class="headerlink" href="#energy-calibration" title="Link to this heading"></a></h2>
+</section>
+<section id="it-s-my-exafs-and-i-need-it-now">
+<h2>It’s my EXAFS and I need it now!<a class="headerlink" href="#it-s-my-exafs-and-i-need-it-now" title="Link to this heading"></a></h2>
 </section>
 </section>
 
