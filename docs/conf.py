@@ -14,7 +14,8 @@ author = 'Isaac Zakaria'
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 extensions = [
-    "sphinx.ext.githubpages"
+    "sphinx.ext.githubpages",
+    "sphinx.ext.mathjax"
 ]
 
 templates_path = ['_templates']

@@ -1,10 +1,23 @@
 Theory
 ======
 
-.. image:: /img/school_class_seifuku_woman_aseru.png
-    :alt: a female teacher trying to explain XAFS to kids
+.. admonition:: tl;dr
+
+    This section gives you an engineer's explanation of x-ray absorption fine structure, including where XANES and EXAFS come from and what they mean.
+
+.. .. image:: /img/school_class_seifuku_woman_aseru.png
+..     :alt: a female teacher trying to explain XAFS to kids
+..     :width: 50%
+..     :align: left
+
+.. image:: /img/job_denkikouji.png
+    :alt: a guy climbing an electricity pole
     :width: 50%
-    :align: left
+    :align: center
+
+.. warning::
+
+    This section is under construction.
 
 What is XAFS, really?
 ---------------------
