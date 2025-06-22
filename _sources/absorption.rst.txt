@@ -1,5 +1,5 @@
-Measuring X-Ray Absorption
-==========================
+Then how measure XAFS?
+======================
 
 .. admonition:: tl;dr
 

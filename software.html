@@ -22,7 +22,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Data" href="data.html" />
-    <link rel="prev" title="Measuring X-Ray Absorption" href="absorption.html" /> 
+    <link rel="prev" title="Then how measure XAFS?" href="absorption.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -45,9 +45,10 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="forward.html">About this guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="motivation.html">What’s in it for me?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="theory.html">Theory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="absorption.html">Measuring X-Ray Absorption</a></li>
+<li class="toctree-l1"><a class="reference internal" href="absorption.html">Then how measure XAFS?</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Software</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#wrangling-pythons">Wrangling Pythons</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#installing-larch">Installing Larch</a></li>
@@ -85,22 +86,28 @@
 <h1>Software<a class="headerlink" href="#software" title="Link to this heading"></a></h1>
 <div class="admonition-tl-dr admonition">
 <p class="admonition-title">tl;dr</p>
-<p>This section shows you how to install Larch for XAFS analysis.</p>
+<p>This section shows you how to install Larch for XAFS analysis. If you already know how to use Conda to install Python modules on your system, you can skip most of this section. Just install <code class="docutils literal notranslate"><span class="pre">xraylarch</span></code>.</p>
 </div>
 <a class="reference internal image-reference" href="_images/computer_doctor_woman.png"><img alt="a female scientist deciding which xafs software to use" class="align-right" src="_images/computer_doctor_woman.png" style="width: 25%;" />
 </a>
 <p>If a real world closer to utopia than ours existed, it wouldn’t matter which software we decided to use to process and analyze our data. In reality, several popular and unpopular analysis packages exist. The ones I support are <a class="reference external" href="https://xraypy.github.io/xraylarch/">Larch</a> and <a class="reference external" href="https://lise.lbl.gov/RSXAP/">RSXAP</a> because they’re what I know and I trust the people who develop them.</p>
-<p>Larch is easy to set up and use, so it’s what I’ll show you how to use here. While RSXAP scales better to complicated fitting jobs than Larch does, Larch’s UI and ease-of-use make it convenient for on-the-fly data analysis at the beamline. Because it’s a more modern project (RSXAP’s Fortran codebase is older than my parents), Larch also has a ton of quality-of-life features and powerful capabilities that RSXAP lacks.</p>
-<p>Athena is another well-known analysis package that you’ll see frequently cited in papers from XAFS experts and amateurs alike. In ye olden times, Athena was a graphical frontend for the Ifeffit code, which was written in Fortran. With the advent of Larch’s more maintainable and reasonably performant Python codebase, Athena now uses Larch as its backend, making Larch and Athena the same tool with different coats of paint. The only difference is that Larix, the purpose-built GUI for Larch, is written in Python and is therefore easier to reproducibly install on different platforms.</p>
+<p>Larch is easy to set up and use, so it’s what I’ll show you how to use here. While, in terms of speed, RSXAP scales better to complicated fitting jobs than Larch does, Larch’s UI and ease-of-use make it convenient for on-the-fly data analysis at the beamline. Because it’s a more modern project (RSXAP’s Fortran codebase is older than my parents), Larch also has a ton of quality-of-life features and powerful capabilities that RSXAP lacks.</p>
+<p>Athena is another well-known analysis package that you’ll see frequently cited in papers from XAFS experts and amateurs alike. In ye olden times, Athena was a graphical frontend for the IFEFFIT code, which was written in Fortran. With the advent of Larch’s more maintainable and reasonably performant Python codebase, Athena now uses Larch as its backend, making Larch and Athena the same tool with different coats of paint.<a class="footnote-reference brackets" href="#id6" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> The only difference is that Larix, the purpose-built GUI for Larch, is written in Python and is therefore easier to reproducibly install on different platforms.</p>
 <section id="wrangling-pythons">
 <h2>Wrangling Pythons<a class="headerlink" href="#wrangling-pythons" title="Link to this heading"></a></h2>
 <a class="reference internal image-reference" href="_images/shinnen_aisatsu_hebi_medousa_couple.png"><img alt="hebi medousa couple" class="align-left" src="_images/shinnen_aisatsu_hebi_medousa_couple.png" style="width: 37.5%;" />
 </a>
 <p>Larch is programmed in Python and requires a local Python installation to run.</p>
-<p>I recommend using <a class="reference external" href="https://www.anaconda.com/docs/getting-started/miniconda/main">Miniconda</a> as your local Python installation since it allows you to create compartmentalized virtual enviroments for different projects.<a class="footnote-reference brackets" href="#id5" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>  If you already have an existing Miniconda, Anaconda, or Micromamba installation, you can adjust these instructions accordingly.<a class="footnote-reference brackets" href="#id6" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a></p>
-<p><a class="reference external" href="https://www.anaconda.com/docs/getting-started/miniconda/install#linux-terminal-installer">Install Miniconda</a> by following the official instructions for your operating system. On Linux, Miniconda (or a similar package) is probably available in your distribution’s repositories.<a class="footnote-reference brackets" href="#id7" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a></p>
-<p>After installing Miniconda on macOS or Windows, you’ll find a new terminal emulator called Anaconda Prompt installed on your computer. If you don’t know what any of this means, you should run all of the terminal commands below in Anaconda Prompt.</p>
-<p><a class="reference external" href="https://docs.conda.io/en/latest/">conda</a> is the built-in package and Python environment manager for Miniconda. We’ll be calling a few times to install Larch.<a class="footnote-reference brackets" href="#id8" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a></p>
+<p>I recommend using <a class="reference external" href="https://www.anaconda.com/docs/getting-started/miniconda/main">Miniconda</a> as your local Python installation since it allows you to create compartmentalized virtual enviroments for different projects.<a class="footnote-reference brackets" href="#id7" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>  If you already have an existing Miniconda, Anaconda, or Micromamba installation, you can adjust these instructions accordingly.<a class="footnote-reference brackets" href="#id8" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a></p>
+<p><a class="reference external" href="https://www.anaconda.com/docs/getting-started/miniconda/install#linux-terminal-installer">Install Miniconda</a> by following the official instructions for your operating system. On Linux, Miniconda (or a similar package) is probably available in your distribution’s repositories.<a class="footnote-reference brackets" href="#id9" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a></p>
+<figure class="align-center" id="id11">
+<img alt="_images/anaconda_windows_installer.png" src="_images/anaconda_windows_installer.png" />
+<figcaption>
+<p><span class="caption-text">Recommended installation options for Miniconda on Windows.</span><a class="headerlink" href="#id11" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Unless you have a reason not to, it’s convenient to register Miniconda as the primary Python 3 provider for your system. On macOS or Linux, you may need to modify your system’s environment variables to achieve this.</p>
+<p><a class="reference external" href="https://docs.conda.io/en/latest/">Conda</a> is the built-in package and Python environment manager for Miniconda. We’ll be calling it a few times to install Larch.<a class="footnote-reference brackets" href="#id10" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a></p>
 </section>
 <section id="installing-larch">
 <h2>Installing Larch<a class="headerlink" href="#installing-larch" title="Link to this heading"></a></h2>
@@ -117,7 +124,7 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">larch</span> <span class="o">-</span><span class="n">m</span>
 </pre></div>
 </div>
-<p>Alternatively, you can launch the Larch applications by typing their names into an Anaconda Prompt with the <code class="docutils literal notranslate"><span class="pre">xraylarch</span></code> conda environment active. For example, use the <code class="docutils literal notranslate"><span class="pre">larix</span></code> command to launch <a class="reference external" href="https://xraypy.github.io/xraylarch/larix.html">Larix</a>.</p>
+<p>Alternatively, you can launch the Larch applications by typing their names into an Anaconda Prompt with the <code class="docutils literal notranslate"><span class="pre">xraylarch</span></code> Conda environment active. For example, use the <code class="docutils literal notranslate"><span class="pre">larix</span></code> command to launch <a class="reference external" href="https://xraypy.github.io/xraylarch/larix.html">Larix</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">xraylarch</span></code> environment must be active when you attempt to launch Larch’s applications from Anaconda Prompt.</p>
@@ -125,25 +132,29 @@
 </section>
 <section id="the-larch-cli">
 <h2>The Larch CLI<a class="headerlink" href="#the-larch-cli" title="Link to this heading"></a></h2>
-<p>Outside of Larix, Larch can also be used via a CLI, accessible directly from a built-in console that’s confusingly called the <a class="reference external" href="https://xraypy.github.io/xraylarch/guis.html#larchgui-app">Larch GUI</a> (<code class="docutils literal notranslate"><span class="pre">larch_gui</span></code>).</p>
-<p>More practically, if you want to use the Larch CLI, you can access <code class="docutils literal notranslate"><span class="pre">larch</span></code> as a Python module. Things like simultaneous fitting, batch analysis, and more complicated data manipulations are probably easier to do by <a class="reference external" href="https://xraypy.github.io/xraylarch/python.html">programming with Larch from Python</a>.</p>
+<p>Outside of Larix, Larch can also be used via a CLI. Simply open an Anaconda Prompt window with the <code class="docutils literal notranslate"><span class="pre">xraylarch</span></code> environment active and type <cite>larch</cite> to enter the Larch console.</p>
+<p>More practically, you can access <code class="docutils literal notranslate"><span class="pre">larch</span></code> as a Python module. Things like simultaneous fitting, batch analysis, and more complicated data manipulations are probably easier to do by <a class="reference external" href="https://xraypy.github.io/xraylarch/python.html">programming with Larch from Python</a> rather than by using the graphical interface provided by Larix.</p>
 <p>When I need to use Larch for more than just checking data at the beamline, I prefer concatenating all of my data into a Larch project file using Larix, then processing my data using Python scripts or a Jupyter notebook.</p>
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="id5" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
-<p>macOS comes with Python pre-installed. Despite this, I recommend using Miniconda anyway, since doing so will keep your system’s Python installation free of unnecessary packages and will allow you to use conda to automatically install dependencies.</p>
-</aside>
 <aside class="footnote brackets" id="id6" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
-<p>Larch is also available from PyPI if you don’t want to use the Anaconda ecosystem, but good luck resolving weird dependency issues if you decide to go this way.</p>
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Larch and IFEFFIT were both developed by <a class="reference external" href="https://scholar.google.com/citations?user=B03CvhEAAAAJ">Matt Newville</a>, a spectroscopist, beamline scientist, and geophysicist, who also developed the Python fitting module LMFIT.</p>
 </aside>
 <aside class="footnote brackets" id="id7" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">3</a><span class="fn-bracket">]</span></span>
-<p>…but if you’re using Linux, you probably don’t need me to tell you about any of this.</p>
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<p>macOS comes with Python pre-installed. Despite this, I recommend using Miniconda anyway, since doing so will keep your system’s Python installation free of unnecessary packages and will allow you to use Conda to automatically install dependencies.</p>
 </aside>
 <aside class="footnote brackets" id="id8" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">3</a><span class="fn-bracket">]</span></span>
+<p>Larch is also available from PyPI if you don’t want to use the Anaconda ecosystem, but good luck resolving weird dependency issues if you decide to go this way.</p>
+</aside>
+<aside class="footnote brackets" id="id9" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">4</a><span class="fn-bracket">]</span></span>
-<p><a class="reference external" href="https://mamba.readthedocs.io/en/latest/user_guide/mamba.html">mamba</a> is an optimized, more performant version of conda that you can use as a drop-in replacement. However, conda now uses mamba as a backend, so many of the speedups of mamba are already implicitly part of conda. You can install mamba by running <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-y</span> <span class="pre">mamba</span></code>.</p>
+<p>…but if you’re using Linux, you probably don’t need me to tell you about any of this.</p>
+</aside>
+<aside class="footnote brackets" id="id10" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">5</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://mamba.readthedocs.io/en/latest/user_guide/mamba.html">Mamba</a> is an optimized, more performant version of Conda that you can use as a drop-in replacement. However, Conda now uses mamba as a backend, so many of the speedups of mamba are already implicitly part of Conda. You can install mamba by running <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-y</span> <span class="pre">mamba</span></code>.</p>
 </aside>
 </aside>
 </section>
@@ -153,7 +164,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="absorption.html" class="btn btn-neutral float-left" title="Measuring X-Ray Absorption" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="absorption.html" class="btn btn-neutral float-left" title="Then how measure XAFS?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="data.html" class="btn btn-neutral float-right" title="Data" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
